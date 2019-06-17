@@ -6,7 +6,7 @@ Summary:	Free VoIP and video softphone based on SIP protocol
 Summary(pl.UTF-8):	Wolnodostępne oprogramowanie do VoIP i połączeń wideo oparte na protokole SIP
 Name:		linphoneqt
 Version:	4.1.1
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Multimedia
 Source0:	https://linphone.org/releases/sources/linphoneqt/%{name}-%{version}.tar.gz
@@ -28,6 +28,7 @@ BuildRequires:	bctoolbox-devel
 BuildRequires:	belcard-devel
 BuildRequires:	cmake >= 3.1
 BuildRequires:	linphone-devel
+BuildRequires:	linphone-c++-devel
 BuildRequires:	libstdc++-devel >= 6:4.7
 BuildRequires:	qt5-build >= 5.9
 BuildRequires:	qt5-linguist >= 5.9
@@ -61,6 +62,8 @@ cd build
 %cmake .. \
 	%{?with_dbus:-DENABLE_DBUS=ON}
 
+echo '#define LINPHONE_QT_GIT_VERSION "%{version}"' > gitversion.h
+
 %{__make}
 
 %install
@@ -79,4 +82,4 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/linphone-tester
 %{_datadir}/linphone
 %{_desktopdir}/linphone.desktop
-%{_iconsdir}/hicolor/scalable/apps/linphone_logo.svg
+%{_iconsdir}/hicolor/scalable/apps/linphone.svg

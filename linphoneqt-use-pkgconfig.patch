@@ -6,13 +6,12 @@
  else ()
 -  find_package(Linphone REQUIRED)
 -  find_package(LinphoneCxx REQUIRED)
--  find_package(BcToolbox REQUIRED)
--  find_package(Belcard REQUIRED)
 +  include(FindPkgConfig)
-+  pkg_search_module(Linphone REQUIRED linphone)
-+  pkg_search_module(LinphoneCxx REQUIRED linphone)
-+  pkg_search_module(BcToolbox REQUIRED bctoolbox)
-+  pkg_search_module(Belcard REQUIRED belcard)
++  pkg_search_module(LINPHONE REQUIRED linphone)
++  pkg_search_module(LINPHONECXX REQUIRED linphone++)
+   find_package(BcToolbox REQUIRED)
+-  find_package(Belcard REQUIRED)
++  pkg_search_module(BELCARD REQUIRED belcard)
  endif ()
  
  set(SOURCES
