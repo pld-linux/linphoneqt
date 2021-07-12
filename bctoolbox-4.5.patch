@@ -1,0 +1,18 @@
+--- linphoneqt-4.1.1/CMakeLists.txt~	2021-07-12 13:19:56.000000000 +0200
++++ linphoneqt-4.1.1/CMakeLists.txt	2021-07-12 13:20:57.419884701 +0200
+@@ -93,13 +93,13 @@
+ if (LINPHONE_BUILDER_GROUP_EXTERNAL_SOURCE_PATH_BUILDERS)
+   include("${EP_linphone_CONFIG_DIR}/LinphoneConfig.cmake")
+   include("${EP_linphone_CONFIG_DIR}/wrappers/cpp/LinphoneCxxConfig.cmake")
+-  include("${EP_bctoolbox_CONFIG_DIR}/BcToolboxConfig.cmake")
++  include("${EP_bctoolbox_CONFIG_DIR}/bctoolboxConfig.cmake")
+   include("${EP_belcard_CONFIG_DIR}/BelcardConfig.cmake")
+ else ()
+   include(FindPkgConfig)
+   pkg_search_module(LINPHONE REQUIRED linphone)
+   pkg_search_module(LINPHONECXX REQUIRED linphone++)
+-  find_package(BcToolbox REQUIRED)
++  find_package(bctoolbox REQUIRED)
+   pkg_search_module(BELCARD REQUIRED belcard)
+ endif ()
+ 
